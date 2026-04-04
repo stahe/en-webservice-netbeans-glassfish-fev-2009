@@ -798,7 +798,7 @@
 
 
 
-<h1 id="4-the-j2ee-web-service-for-appointments">4. <span style="color: #365f91"><strong>The J2EE Web Service for Appointments</strong></span></h1>
+<h1 id="4-the-j2ee-web-service-for-appointments">4. <span style="color: #365f91">The J2EE Web Service for Appointments</span></h1>
 <p>Let’s return to the architecture of the application to be built:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000007AF0000018DFBD084B2.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.632cm;" class="odt-zoomable" data-zoom-src="images/10000000000007AF0000018DFBD084B2.png" /></td></tr></table>
 
@@ -806,7 +806,7 @@
 <h2 id="41-the-database">4.1. <span style="color: #4f81bd"><strong>The Database</strong></span></h2>
 <p>The database, which we will call [<a id="dbrdvmedecins"></a> dbrdvmedecins], is a MySQL5 database with four tables:</p>
 <p><img src="images/10000000000000CE0000006EB8CE00C1.png" style="width:4.36cm;height:2.328cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000CE0000006EB8CE00C1.png" /></p>
-<h3 id="411-the-medecins-table">4.1.1. <span style="color: #4f81bd"><strong>The [MEDECINS] table</strong></span></h3>
+<h3 id="411-the-medecins-table">4.1.1. <span style="color: #4f81bd">The [MEDECINS] table</span></h3>
 <p>It contains information about the doctors managed by the [RdvMedecins] application.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013B0000009140E8B0E1.png" style="display:inline-block; margin:4px;width:5.83cm;height:2.685cm;" class="odt-zoomable" data-zoom-src="images/100000000000013B0000009140E8B0E1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001830000006A63E8B6FD.png" style="display:inline-block; margin:4px;width:7.17cm;height:1.963cm;" class="odt-zoomable" data-zoom-src="images/10000000000001830000006A63E8B6FD.png" /></td></tr></table>
 
@@ -817,7 +817,7 @@
 <li>FIRST_NAME: the doctor&#x27;s first name</li>
 <li>TITLE: their title (Ms., Mrs., Mr.)</li>
 </ul>
-<h3 id="412-the-clients-table">4.1.2. <span style="color: #4f81bd"><strong>The [CLIENTS] table</strong></span></h3>
+<h3 id="412-the-clients-table">4.1.2. <span style="color: #4f81bd">The [CLIENTS] table</span></h3>
 <p>The clients of the various doctors are stored in the [CLIENTS] table:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000015C0000009211F9EF53.png" style="display:inline-block; margin:4px;width:6.451cm;height:2.706cm;" class="odt-zoomable" data-zoom-src="images/100000000000015C0000009211F9EF53.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001720000006D8D331F7F.png" style="display:inline-block; margin:4px;width:6.849cm;height:2.018cm;" class="odt-zoomable" data-zoom-src="images/10000000000001720000006D8D331F7F.png" /></td></tr></table>
 
@@ -828,7 +828,7 @@
 <li>FIRST NAME: the client’s first name</li>
 <li>TITLE: their title (Ms., Mrs., Mr.)</li>
 </ul>
-<h3 id="413-the-slots-table">4.1.3. <span style="color: #4f81bd"><strong>The [SLOTS] table</strong></span></h3>
+<h3 id="413-the-slots-table">4.1.3. <span style="color: #4f81bd">The [SLOTS] table</span></h3>
 <p>It lists the time slots when appointments are available: </p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000170000000B33347BA3C.png" style="display:inline-block; margin:4px;width:6.819cm;height:3.318cm;" class="odt-zoomable" data-zoom-src="images/1000000000000170000000B33347BA3C.png" /></td></tr></table>
 
@@ -844,7 +844,7 @@
 <li>MFIN: End minutes of the slot</li>
 </ul>
 <p>The second row of the [SLOTS] table (see [1] above) indicates, for example, that slot #2 begins at 8:20 a.m. and ends at 8:40 a.m. and belongs to doctor #1 (Ms. Marie PELISSIER).</p>
-<h3 id="414-the-rv-table">4.1.4. <span style="color: #4f81bd"><strong>The [RV] table</strong></span></h3>
+<h3 id="414-the-rv-table">4.1.4. <span style="color: #4f81bd">The [RV] table</span></h3>
 <p>It lists the appointments booked for each doctor:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E700000128C8688D7D.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.014cm;" class="odt-zoomable" data-zoom-src="images/10000000000006E700000128C8688D7D.png" /></td></tr></table>
 
@@ -860,7 +860,7 @@
 <p>If a row in the [RV] table has the value (DAY1, SLOT_ID1) for the columns (DAY, SLOT_ID), this value cannot appear anywhere else. Otherwise, this would mean that two appointments were booked at the same time for the same doctor. From a Java programming perspective, the database’s JDBC driver throws an <em>SQLException</em> when this occurs.</p>
 <p>The row <em>with ID</em> equal to 3 (see [1] above) means that an appointment was booked for slot #20 and client #4 on 08/23/2006. The [SLOTS] table tells us that slot no. 20 corresponds to the time slot 4:20 PM – 4:40 PM and belongs to doctor no. 1 (Ms. Marie PELISSIER). The [CLIENTS] table tells us that client no. 4 is Ms. Brigitte BISTROU.</p>
 <p><a id="creation-bd"></a></p>
-<h2 id="42-database-creation">4.2. <span style="color: #4f81bd"><strong>Database Creation</strong></span></h2>
+<h2 id="42-database-creation">4.2. <span style="color: #4f81bd">Database Creation</span></h2>
 <p>Create the MySQL database [dbrdvmedecins] using the tool of your choice. To create the tables and populate them, you can use the [createbd.sql] script provided. Its contents are as follows:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -1002,7 +1002,7 @@
 <a id="__codelineno-1-69" name="__codelineno-1-69"></a>
 <a id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="k">COMMIT</span><span class="w"> </span><span class="k">WORK</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="43-server-side-architecture-components">4.3. <span style="color: #4f81bd"><strong>Server-side architecture components</strong></span></h2>
+<h2 id="43-server-side-architecture-components">4.3. <span style="color: #4f81bd">Server-side architecture components</span></h2>
 <p>Let’s return to the architecture of the application to be built:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000007C8000001890B5F1A5F.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.551cm;" class="odt-zoomable" data-zoom-src="images/10000000000007C8000001890B5F1A5F.png" /></td></tr></table>
 
@@ -1039,7 +1039,7 @@
 <p>We will use the first solution here:</p>
 <p>In the course [<a href="http://tahe.ftp-developpez.com/fichiers-archive/javaee.pdf"><u><span style="color: #0563c1">ref1</span></u></a>], paragraph 14, page 109, you will find an example using the second solution.</p>
 <p><a id="hibernateglassfish"></a></p>
-<h2 id="44-and-hibernate-configuration-for-the-glassfish-server">4.4. <span style="color: #4f81bd"><strong>, and Hibernate configuration for the GlassFish server</strong></span></h2>
+<h2 id="44-and-hibernate-configuration-for-the-glassfish-server">4.4. <span style="color: #4f81bd">, and Hibernate configuration for the GlassFish server</span></h2>
 <p>Depending on the version, the GlassFish V2 server included with NetBeans may not have the Hibernate libraries required by the JPA/Hibernate layer. If, as you continue through the tutorial, you find that GlassFish does not provide a JPA/Hibernate implementation, or if an exception occurs during service deployment indicating that the Hibernate libraries cannot be found, you must add the libraries to the folder [&lt;glassfish&gt;/domains/domain1/lib/ext] and then restart the GlassFish server:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000024B000004421260E49B.png" style="display:inline-block; margin:4px;width:7.766cm;height:14.422cm;" class="odt-zoomable" data-zoom-src="images/100000000000024B000004421260E49B.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><ul>
   <li>in [1], the &lt;glassfish&gt;/.../lib/ext folder
@@ -1052,13 +1052,13 @@
 
 <p>The Hibernate libraries are included in the ZIP file that accompanies the tutorial.</p>
 <p><a id="generationautomatique"></a></p>
-<h2 id="45-netbeans-automatic-generation-tools">4.5. <span style="color: #4f81bd"><strong>NetBeans&#x27; automatic generation tools</strong></span></h2>
+<h2 id="45-netbeans-automatic-generation-tools">4.5. <span style="color: #4f81bd">NetBeans&#x27; automatic generation tools</span></h2>
 <p>Let’s return to the architecture we need to build:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006EE000001903A1EA28D.png" style="display:inline-block; margin:4px;width:17.997cm;height:4.059cm;" class="odt-zoomable" data-zoom-src="images/10000000000006EE000001903A1EA28D.png" /></td></tr></table>
 
 <p>With NetBeans, it is possible to automatically generate the [JPA] layer and the [EJB] layer that controls access to the generated JPA entities. It is useful to be familiar with these automatic generation methods because the generated code provides valuable insights into how to write JPA entities or the EJB code that uses them.</p>
 <p>We will now describe some of these automatic generation tools. To understand the generated code, you need a solid understanding of JPA entities [<a href="http://tahe.ftp-developpez.com/fichiers-archive/javaee.pdf"><u><span style="color: #0563c1">ref1</span></u></a>] and EJBs [<a href="http://tahe.ftp-developpez.com/fichiers-archive/jpa.pdf"><u><span style="color: #0563c1">ref2</span></u></a>].</p>
-<p><a id="connexionnetbeans"></a><u><strong>Creating a NetBeans connection to the database</strong></u></p>
+<p><u><strong><a id="connexionnetbeans"></a>Creating a NetBeans connection to the database</strong></u></p>
 <ul>
   <li>Start the MySQL 5 DBMS so that the database is available
   </li>
@@ -1086,7 +1086,7 @@
   </li>
 </ul>
 
-<p><a id="creationmoduleejb"></a><u><strong>Creating an EJB project</strong></u></p>
+<p><u><strong><a id="creationmoduleejb"></a>Creating an EJB project</strong></u></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005DC000001318C9848C2.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.658cm;" class="odt-zoomable" data-zoom-src="images/10000000000005DC000001318C9848C2.png" /></td></tr></table>
 
 <ul>
@@ -1105,7 +1105,7 @@
   </li>
 </ul>
 
-<p><a id="ressourcejdbcglassfish"></a><u><strong>Adding a JDBC resource to the GlassFish server</strong></u></p>
+<p><u><strong><a id="ressourcejdbcglassfish"></a>Adding a JDBC resource to the GlassFish server</strong></u></p>
 <p>We will add a JDBC resource to the GlassFish server.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005A40000019288308EDD.png" style="display:inline-block; margin:4px;width:17.997cm;height:5.009cm;" class="odt-zoomable" data-zoom-src="images/10000000000005A40000019288308EDD.png" /></td></tr></table>
 
@@ -1181,7 +1181,7 @@
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="nt">&lt;/resources&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>The file above contains all the information entered in the wizard in XML format. It will be used by the NetBeans IDE to instruct the GlassFish server to create the &quot;jdbc/dbrdvmedecins&quot; resource defined on line 4.</p>
-<p><a id="creationunitepersistance"></a><u><strong>Creating a persistence unit</strong></u></p>
+<p><u><strong><a id="creationunitepersistance"></a>Creating a persistence unit</strong></u></p>
 <p>The persistence unit [persistence.xml] configures the JPA layer: it specifies the JPA implementation used (TopLink, Hibernate, etc.) and configures it.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000058800000199BB57548D.png" style="display:inline-block; margin:4px;width:17.997cm;height:5.198cm;" class="odt-zoomable" data-zoom-src="images/100000000000058800000199BB57548D.png" /></td></tr></table>
 
@@ -1231,7 +1231,7 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="nt">&lt;/persistence&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Once again, it converts the information provided in the wizard into XML format. This file is insufficient for working with the MySQL5 database &quot;dbrdvmedecins&quot;. We would need to specify the type of DBMS to be managed to Hibernate. This will be done later.</p>
-<p><a id="creationentitesjpa"></a><u><strong>Creating JPA Entities</strong></u></p>
+<p><u><strong><a id="creationentitesjpa"></a>Creating JPA Entities</strong></u></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000059000000193EA8B229F.png" style="display:inline-block; margin:4px;width:17.997cm;height:5.092cm;" class="odt-zoomable" data-zoom-src="images/100000000000059000000193EA8B229F.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006EF000002D42DB2CD92.png" style="display:inline-block; margin:4px;width:17.997cm;height:7.341cm;" class="odt-zoomable" data-zoom-src="images/10000000000006EF000002D42DB2CD92.png" /></td></tr></table>
@@ -1328,7 +1328,7 @@
 <a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="p">...</span>
 <a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p><a id="creationcoucheejb"></a><u><strong>Creating the EJB layer for accessing JPA entities</strong></u></p>
+<p><u><strong><a id="creationcoucheejb"></a>Creating the EJB layer for accessing JPA entities</strong></u></p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000587000001916A82C778.png" style="display:inline-block; margin:4px;width:17.997cm;height:5.099cm;" class="odt-zoomable" data-zoom-src="images/1000000000000587000001916A82C778.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E2000002D24DEC4166.png" style="display:inline-block; margin:4px;width:17.997cm;height:7.375cm;" class="odt-zoomable" data-zoom-src="images/10000000000006E2000002D24DEC4166.png" /></td></tr></table>
@@ -1425,7 +1425,7 @@
 </code></pre></div></td></tr></table></div>
 <p>As mentioned, automatic code generation can be very useful for getting a project started and learning about JPA entities and EJBs. In the following sections, we will rewrite the JPA and EJB layers with our own code, but the reader will recognize information we just covered in the automatic generation of the layers.</p>
 <p><a id="module-ejb"></a></p>
-<h2 id="46-the-netbeans-project-for-the-ejb-module">4.6. <span style="color: #4f81bd"><strong>The NetBeans project for the EJB module</strong></span></h2>
+<h2 id="46-the-netbeans-project-for-the-ejb-module">4.6. <span style="color: #4f81bd">The NetBeans project for the EJB module</span></h2>
 <p>We create a new empty EJB module (see section<a href="#creationmoduleejb"><u><span style="color: #0563c1"> 4.5</span></u></a>):</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C9000000A943318DA3.png" style="display:inline-block; margin:4px;width:3.72cm;height:3.127cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C9000000A943318DA3.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
@@ -1439,7 +1439,7 @@
 </ul>
 
 <p>In the following, we assume that the reader has followed all the steps in section<a href="#generationautomatique"><u><span style="color: #0563c1"> 4.5</span></u></a>. They will need to repeat some of them.</p>
-<h3 id="461-configuring-the-jpa-layer">4.6.1. <span style="color: #4f81bd"><strong>Configuring the JPA layer</strong></span></h3>
+<h3 id="461-configuring-the-jpa-layer">4.6.1. <span style="color: #4f81bd">Configuring the JPA layer</span></h3>
 <p>Let’s review the architecture of our client/server application:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006F2000001953667F99C.png" style="display:inline-block; margin:4px;width:17.997cm;height:4.099cm;" class="odt-zoomable" data-zoom-src="images/10000000000006F2000001953667F99C.png" /></td></tr></table>
 
@@ -1520,7 +1520,7 @@
   </li>
 </ul>
 
-<h3 id="462-the-entities-of-the-jpa-layer">4.6.2. <span style="color: #4f81bd"><strong>The entities of the JPA layer</strong></span></h3>
+<h3 id="462-the-entities-of-the-jpa-layer">4.6.2. <span style="color: #4f81bd">The entities of the JPA layer</span></h3>
 <p>Let’s review the architecture of our client/server application:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006E4000001830B105E5A.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.948cm;" class="odt-zoomable" data-zoom-src="images/10000000000006E4000001830B105E5A.png" /></td></tr></table>
 
@@ -1934,7 +1934,7 @@
   </li>
 </ul>
 
-<h3 id="463-the-exception-class">4.6.3. <span style="color: #4f81bd"><strong>The exception class</strong></span></h3>
+<h3 id="463-the-exception-class">4.6.3. <span style="color: #4f81bd">The exception class</span></h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001FA0000017AF881B675.png" style="display:inline-block; margin:4px;width:6.694cm;height:5.001cm;" class="odt-zoomable" data-zoom-src="images/10000000000001FA0000017AF881B675.png" /></td></tr></table>
 
 <p>The application&#x27;s exception class [<a id="rdvmedecinsexception"></a> RdvMedecinsException] is as follows:</p>
@@ -2043,7 +2043,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006F10000018DB1872083.png" style="display:inline-block; margin:4px;width:17.997cm;height:4.022cm;" class="odt-zoomable" data-zoom-src="images/10000000000006F10000018DB1872083.png" /></td></tr></table>
 
 <p>The [RdvMedecinsException] exception will be thrown by the EJB methods in the [dao] layer within the EJB3 container and intercepted by it. Without the <strong>@ApplicationException</strong> annotation, the EJB3 container encapsulates the exception that occurred within an [EjbException] and rethrows it. You may not want this encapsulation and prefer to let an exception of type [RdvMedecinsException] escape from the EJB3 container. This is what the <strong>@ApplicationException</strong> annotation allows. Furthermore, the (<strong>rollback=true</strong>) attribute of this annotation instructs the Ejb3 container that if an exception of type [RdvMedecinsException] occurs within a method executed as part of a transaction with a DBMS, the transaction must be rolled back. In technical terms, this is called rolling <em>back</em> the transaction.</p>
-<h3 id="464-the-ejb-of-the-dao-layer">4.6.4. <span style="color: #4f81bd"><strong>The EJB of the [dao] layer</strong></span></h3>
+<h3 id="464-the-ejb-of-the-dao-layer">4.6.4. <span style="color: #4f81bd">The EJB of the [dao] layer</span></h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006EA0000019081977FBB.png" style="display:inline-block; margin:4px;width:17.997cm;height:4.068cm;" class="odt-zoomable" data-zoom-src="images/10000000000006EA0000019081977FBB.png" /></td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001BE000001BA901989A5.png" style="display:inline-block; margin:4px;width:5.9cm;height:5.847cm;" class="odt-zoomable" data-zoom-src="images/10000000000001BE000001BA901989A5.png" /></td></tr></table>
@@ -2401,7 +2401,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000276000003311030468E.png" style="display:inline-block; margin:4px;width:8.334cm;height:10.807cm;" class="odt-zoomable" data-zoom-src="images/1000000000000276000003311030468E.png" /></td></tr></table>
 
 <p><a id="deploiement-ejb1"></a></p>
-<h2 id="47-deploying-the-dao-layer-ejb-with-netbeans">4.7. <span style="color: #4f81bd"><strong>Deploying the [DAO] layer EJB with NetBeans</strong></span></h2>
+<h2 id="47-deploying-the-dao-layer-ejb-with-netbeans">4.7. <span style="color: #4f81bd">Deploying the [DAO] layer EJB with NetBeans</span></h2>
 <p>NetBeans allows you to easily deploy the previously created EJB to the GlassFish server.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000006740000019183F63789.png" style="display:inline-block; margin:4px;width:17.997cm;height:4.369cm;" class="odt-zoomable" data-zoom-src="images/10000000000006740000019183F63789.png" /></td></tr></table>
 
@@ -2443,7 +2443,7 @@
 </ul>
 
 <p><a id="deploiement-ejb"></a></p>
-<h2 id="48-deploying-the-ejb-from-the-dao-layer-with-glassfish">4.8. <span style="color: #4f81bd"><strong>Deploying the EJB from the [DAO] layer with GlassFish</strong></span></h2>
+<h2 id="48-deploying-the-ejb-from-the-dao-layer-with-glassfish">4.8. <span style="color: #4f81bd">Deploying the EJB from the [DAO] layer with GlassFish</span></h2>
 <p>Here we show how to deploy an EJB to the GlassFish server from its .jar archive.</p>
 <ul>
   <li>Start the MySQL server and ensure that the [dbrdvmedecins] database is online. To do this, you can use the NetBeans connection created in Section<a href="#connexionnetbeans"><u><span style="color: #0563c1"> 4.5</span></u></a>.
@@ -2613,7 +2613,7 @@
   </li>
 </ul>
 
-<h2 id="49-testing-the-ejb-of-the-dao-layer">4.9. <span style="color: #4f81bd"><strong>Testing the EJB of the [DAO] layer</strong></span></h2>
+<h2 id="49-testing-the-ejb-of-the-dao-layer">4.9. <span style="color: #4f81bd">Testing the EJB of the [DAO] layer</span></h2>
 <p>Now that the EJB for the [DAO] layer of our application has been deployed, we can test it. We will do this using the following Java client:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001C5000001837EF57C70.png" style="display:inline-block; margin:4px;width:5.994cm;height:5.121cm;" class="odt-zoomable" data-zoom-src="images/10000000000001C5000001837EF57C70.png" /></td></tr></table>
 
@@ -2819,7 +2819,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010300000053855FAA4F.png" style="display:inline-block; margin:4px;width:4.8cm;height:1.538cm;" class="odt-zoomable" data-zoom-src="images/100000000000010300000053855FAA4F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <p>Now that the EJB of the [dao] layer is operational, we can proceed to expose it publicly via a web service.</p>
-<h2 id="410-the-dao-layers-web-service">4.10. <span style="color: #4f81bd"><strong>The [dao] layer’s web service</strong></span></h2>
+<h2 id="410-the-dao-layers-web-service">4.10. <span style="color: #4f81bd">The [dao] layer’s web service</span></h2>
 <p>For a brief introduction to the concept of a web service, see section 14, page 111 of [<a href="http://tahe.ftp-developpez.com/fichiers-archive/javaee.pdf"><u><span style="color: #0563c1">ref1</span></u></a>].</p>
 <p>Let’s return to the server architecture of our client/server application:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050300000123F6C914AF.png" style="display:inline-block; margin:4px;width:16.974cm;height:3.851cm;" class="odt-zoomable" data-zoom-src="images/100000000000050300000123F6C914AF.png" /></td></tr></table>
@@ -2850,7 +2850,7 @@
 
 <p>We will build this enterprise project in two ways.</p>
 <p><a id="serviceweb-1"></a></p>
-<h3 id="4101-netbeans-project-version-1">4.10.1. <span style="color: #4f81bd"><strong>NetBeans Project - Version 1</strong></span></h3>
+<h3 id="4101-netbeans-project-version-1">4.10.1. <span style="color: #4f81bd">NetBeans Project - Version 1</span></h3>
 <p>First, we create a NetBeans project of the &quot;Web Application&quot; type:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000480000000EA511087E9.png" style="display:inline-block; margin:4px;width:15.24cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/1000000000000480000000EA511087E9.png" /></td></tr></table>
 
@@ -3180,7 +3180,7 @@
   </li>
 </ul>
 
-<h3 id="4102-netbeans-project-version-2">4.10.2. <span style="color: #4f81bd"><strong>NetBeans Project - Version 2</strong></span></h3>
+<h3 id="4102-netbeans-project-version-2">4.10.2. <span style="color: #4f81bd">NetBeans Project - Version 2</span></h3>
 <p>We will now show how to deploy the web service when you do not have the source code for the EJB module but only its .jar archive.</p>
 <p>The new NetBeans project for the web service will be as follows:</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001D20000014DF9F1B19C.png" style="display:inline-block; margin:4px;width:6.165cm;height:4.404cm;" class="odt-zoomable" data-zoom-src="images/10000000000001D20000014DF9F1B19C.png" /></td></tr></table>
@@ -3299,7 +3299,7 @@
   </li>
 </ul>
 
-<h3 id="4103-junit-tests-for-the-web-service">4.10.3. <span style="color: #4f81bd"><strong>JUnit Tests for the Web Service</strong></span></h3>
+<h3 id="4103-junit-tests-for-the-web-service">4.10.3. <span style="color: #4f81bd">JUnit Tests for the Web Service</span></h3>
 <p>We create a NetBeans project to &quot;run&quot; the tests previously performed with an EJB client, this time using a client for the recently deployed web service. Here, we follow a procedure similar to the one described in section 14.2.1, page 115 of [<a href="http://tahe.ftp-developpez.com/fichiers-archive/javaee.pdf"><u><span style="color: #0563c1">ref1</span></u></a>].</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001970000015126DB8D79.png" style="display:inline-block; margin:4px;width:5.385cm;height:4.459cm;" class="odt-zoomable" data-zoom-src="images/10000000000001970000015126DB8D79.png" /></td></tr></table>
 
