@@ -1,0 +1,1081 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="An Introduction to Android Tablet Programming with Android Studio">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/en-webservice-netbeans-glassfish-fev-2009/net-clients-of-the-j2ee-appointment-service.html">
+      
+      
+        <link rel="prev" href="the-j2ee-web-service-for-appointments.html">
+      
+      
+        <link rel="next" href="flex-clients-for-the-jee-appointment-service.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>5. .NET clients of the J2EE appointment service - Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-net-clients-of-the-j2ee-appointment-service" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server" class="md-header__button md-logo" aria-label="Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. .NET clients of the J2EE appointment service
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/en-webservice-netbeans-glassfish-fev-2009" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server" class="md-nav__button md-logo" aria-label="Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building a Java EE web service using the NetBeans 6.5 IDE and the GlassFish Java EE server
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/en-webservice-netbeans-glassfish-fev-2009" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="the-nature-of-the-web-service-developed.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. The nature of the web service developed
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how-the-application-works.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. How the application works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="the-j2ee-web-service-for-appointments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. The J2EE Web Service for Appointments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. .NET clients of the J2EE appointment service
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="net-clients-of-the-j2ee-appointment-service.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. .NET clients of the J2EE appointment service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-a-c-2008-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. A C# 2008 client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-a-first-aspnet-2008-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. A First ASP.NET 2008 Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-a-second-aspnet-2008-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. A second ASP.NET 2008 client
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="flex-clients-for-the-jee-appointment-service.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Flex Clients for the JEE Appointment Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="5-net-clients-of-the-j2ee-appointment-service">5. <span style="color: #365f91"><strong>.NET clients of the J2EE appointment service</strong></span></h1>
+<h2 id="51-a-c-2008-client">5.1. <span style="color: #4f81bd"><strong>A C# 2008 client</strong></span></h2>
+<p>We will now assume that the previous web service is available and active. A web service can be used by clients written in various languages. Here, we will write a C# console client to display the list of doctors.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000056900000114A2B5166B.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.586cm;" class="odt-zoomable" data-zoom-src="images/100000000000056900000114A2B5166B.png" /></td></tr></table>
+
+<p>Let’s start by creating the C# project:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BC0000018B0C755C28.png" style="display:inline-block; margin:4px;width:16.034cm;height:5.226cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BC0000018B0C755C28.png" /></td></tr></table>
+
+<p>We create a console application [1] named [ListeDesMedecins] [2]. In [3], we create a reference to a web service. This tool is similar to the one used in NetBeans: it creates a local proxy for the remote web service.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038200000265A6BAF937.png" style="display:inline-block; margin:4px;width:11.88cm;height:8.11cm;" class="odt-zoomable" data-zoom-src="images/100000000000038200000265A6BAF937.png" /></td></tr></table>
+
+<ul>
+  <li>In [1], specify the URI of the web service’s WSDL file (see Section<a href="#uri-service-web"><u><span style="color: #0563c1"> 4.10.2</span></u></a>).
+  </li>
+  <li>In [2], we ask the wizard to discover the web services exposed at this URI
+  </li>
+  <li>In [3], the found web service is displayed, and in [4], the methods it exposes.
+  </li>
+  <li>In [5], specify the namespace in which the C proxy classes should be generated
+  </li>
+  <li>In [6], the C proxy is generated.
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002BD000001294B73A821.png" style="display:inline-block; margin:4px;width:9.275cm;height:3.93cm;" class="odt-zoomable" data-zoom-src="images/10000000000002BD000001294B73A821.png" /></td></tr></table>
+
+<ul>
+  <li>In [1], the web reference we just created. Double-click on it.
+  </li>
+  <li>In [2], the object explorer opened by double-clicking.
+  </li>
+  <li>In [3], select the namespace [ListeDesMedecins.Ws.RdvMedecins], which is the namespace of the generated C proxy. The first term [ListeDesMedecins] is the default namespace of the created C# application (we named it <i>ListeDesMedecins</i>). The second term [Ws.RdvMedecins] is the namespace we assigned to the C proxy in the wizard. Ultimately, the C proxy objects belong to the namespace [ListeDesMedecins.Ws.RdvMedecins].
+  </li>
+  <li>In [4], the objects of the generated C proxy
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000050B00000117DAF64751.png" style="display:inline-block; margin:4px;width:17.08cm;height:3.692cm;" class="odt-zoomable" data-zoom-src="images/100000000000050B00000117DAF64751.png" /></td></tr></table>
+
+<ul>
+  <li>in [5], [WsDaoJpaClient] is the class that locally implements the methods of the remote web service.
+  </li>
+  <li>In [6], the methods of the [WsDaoJpaClient] class.  Here we find the methods of the remote web service, such as the <i>getAllClients</i> method in [7].
+  </li>
+</ul>
+
+<p>Let’s examine the code for the generated entities:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000016C000000BFAEAAB231.png" style="display:inline-block; margin:4px;width:4.815cm;height:2.528cm;" class="odt-zoomable" data-zoom-src="images/100000000000016C000000BFAEAAB231.png" /></td></tr></table>
+
+<p>In [1] above, we request to view the code for the [client] class:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line">...</span>
+<span class="odt-code-line">    <span style="color:#0000ff">public partial class</span><a id="client-csharp-classe-client"></a><span style="color:#2b91af"> client </span>: <span style="color:#2b91af">Person </span>{</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">    </span>
+<span class="odt-code-line">....</span>
+<span class="odt-code-line">    <span style="color:#0000ff">public partial class </span><span style="color:#2b91af">Person </span>: <span style="color:#0000ff">object</span>, System.ComponentModel.<span style="color:#2b91af">INotifyPropertyChanged </span>{</span>
+<span class="odt-code-line">    ...</span>
+<span class="odt-code-line">        <span style="color:#0000ff">public long </span>id {</span>
+<span class="odt-code-line">       ...</span>
+<span class="odt-code-line">        }</span>
+<span class="odt-code-line">        </span>
+<span class="odt-code-line">...</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<p>Above, we have included only the code necessary for our study.</p>
+<ul>
+  <li>line 2: the [customer] class derives from the [person] class, just like in the web service.
+  </li>
+  <li>line 8: a public property of the [person] class
+  </li>
+</ul>
+
+<p>What we notice is that the generated code does not follow standard C# coding conventions. The names of classes and public properties should start with a capital letter.</p>
+<p>Let’s return to our C# application:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049E000001115CB50FC5.png" style="display:inline-block; margin:4px;width:15.637cm;height:3.612cm;" class="odt-zoomable" data-zoom-src="images/100000000000049E000001115CB50FC5.png" /></td></tr></table>
+
+<p>[Program.cs] [1] is the test class. Its code is as follows:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span style="color:#0000ff">using </span>System;</span>
+<span class="odt-code-line"><span style="color:#0000ff">using </span>DoctorsList.Ws.DoctorAppointments;</span>
+<span class="odt-code-line"><span style="color:#0000ff">using </span><span style="color:#2b91af">Client </span>= ListeDesMedecins.Ws.RdvMedecins.<span style="color:#2b91af">client</span>;</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">namespace </span>ListOfDoctors {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">class </span><span style="color:#2b91af">Program </span>{</span>
+<span class="odt-code-line">        <span style="color:#0000ff">static void </span>Main(<span style="color:#0000ff">string</span>[] args) {</span>
+<span class="odt-code-line">            <span style="color:#0000ff">try </span>{</span>
+<span class="odt-code-line">                <span style="color:#008000">// instantiate the client&#x27;s [DAO] layer</span></span>
+<span class="odt-code-line">                <span style="color:#2b91af">WsDaoJpaClient </span>dao = <span style="color:#0000ff">new </span><span style="color:#2b91af">WsDaoJpaClient</span>();</span>
+<span class="odt-code-line">                <span style="color:#008000">// list of doctors</span></span>
+<span class="odt-code-line">                <span style="color:#0000ff">foreach </span>(<span style="color:#2b91af">Client </span>client <span style="color:#0000ff">in </span>dao.getAllClients()) {</span>
+<span class="odt-code-line">                    <span style="color:#2b91af">Console</span>.WriteLine(<span style="color:#2b91af">String</span>.Format(<span style="color:#a31515">&quot;{0} {1} {2}&quot;</span>, client.title, client.firstName, client.lastName));</span>
+<span class="odt-code-line">                }</span>
+<span class="odt-code-line">            } <span style="color:#0000ff">catch </span>(<span style="color:#2b91af">Exception </span>e) {</span>
+<span class="odt-code-line">                <span style="color:#2b91af">Console</span>.WriteLine(e);</span>
+<span class="odt-code-line">            }</span>
+<span class="odt-code-line">        }</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<p>On line 12, the [Client] class from the C proxy is used, even though we just saw that it was actually called [client]. It is the declaration on line 3 that allows us to use [Client] instead of [client]. This allows us to comply with the class naming convention. Still on line 12, the [getAllClients] method is used because that is what it is called in the C proxy. The C# coding standard would require it to be called [GetAllClients].</p>
+<p>Running the previous program [1] yields the results shown in [2].</p>
+<h2 id="52-a-first-aspnet-2008-client">5.2. <span style="color: #4f81bd"><strong>A First ASP.NET 2008 Client</strong></span></h2>
+<p>We will now write a first ASP.NET / C# client to display the list of clients.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000055D0000011B7771940E.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.709cm;" class="odt-zoomable" data-zoom-src="images/100000000000055D0000011B7771940E.png" /></td></tr></table>
+
+<p>In this architecture, there are two web servers:</p>
+<ul>
+  <li>the one running the remote web service
+  </li>
+  <li>the one running the ASP.NET client for the remote web service
+  </li>
+</ul>
+
+<p>We will create the ASP.NET client web project using Visual Web Express 2008 <strong>SP1</strong>. The following section shows how to create the same project if you do not have Visual Web Express 2008 <strong>SP1</strong>.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BF0000019C2B68DEC9.png" style="display:inline-block; margin:4px;width:16.074cm;height:5.45cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BF0000019C2B68DEC9.png" /></td></tr></table>
+
+<p>We create a <em>web</em> application [1, 2, 3] named [ClientList1] [4, 5, 6]. The project created in this way is visible in [7].</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000049F0000014D31DE65AB.png" style="display:inline-block; margin:4px;width:15.651cm;height:4.406cm;" class="odt-zoomable" data-zoom-src="images/100000000000049F0000014D31DE65AB.png" /></td></tr></table>
+
+<ul>
+  <li>In [5], right-click on the project name to add a web service reference.
+  </li>
+  <li>In [6], specify the URI of the web service’s WSDL file (see section<a href="#uri-service-web"><u><span style="color: #0563c1"> 4.10.2</span></u></a>).
+  </li>
+  <li>In [7], ask the wizard to discover the web services exposed at this URI
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E80000018A19A3AF74.png" style="display:inline-block; margin:4px;width:16.616cm;height:5.212cm;" class="odt-zoomable" data-zoom-src="images/10000000000004E80000018A19A3AF74.png" /></td></tr></table>
+
+<ul>
+  <li>In [8], the found web service is displayed, and in [9], the methods it exposes are shown.
+  </li>
+  <li>In [10], specify the namespace in which the C proxy classes should be generated
+  </li>
+  <li>In [11], the reference of the generated web service
+  </li>
+</ul>
+
+<p>Double-clicking on the reference [Ws.Rdvmedecins] [12] displays the classes and interfaces generated for the C proxy:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000021500000317916F8A24.png" style="display:inline-block; margin:4px;width:7.052cm;height:10.465cm;" class="odt-zoomable" data-zoom-src="images/100000000000021500000317916F8A24.png" /></td></tr></table>
+
+<ul>
+  <li>In [1], the object explorer opened by double-clicking.
+  </li>
+  <li>In [2], select the namespace [ListeDesClients1.Ws.RdvMedecins], which is the namespace of the generated C proxy. The first term [ListeDesClients1] is the default namespace of the created ASP.NET application (we named it <i>ListeDesClients1</i>). The second term [Ws.RdvMedecins] is the namespace we assigned to the C proxy in the wizard. Ultimately, the C proxy objects belong to the namespace [ListeDesClients1.Ws.RdvMedecins].
+  </li>
+  <li>In [3], the objects of the generated C proxy
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004C00000018D5C133C3A.png" style="display:inline-block; margin:4px;width:16.087cm;height:5.253cm;" class="odt-zoomable" data-zoom-src="images/10000000000004C00000018D5C133C3A.png" /></td></tr></table>
+
+<ul>
+  <li>In [4], [WsDaoJpaService] is the class that locally implements the methods of the remote web service.
+  </li>
+  <li>In [5], the methods of the [WsDaoJpaService] class.  Here we find the methods of the remote web service, such as the <i>getAllClients</i> method in [6].
+  </li>
+</ul>
+
+<p>Let’s examine the code for the generated entities:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000014600000137751A6735.png" style="display:inline-block; margin:4px;width:4.313cm;height:4.115cm;" class="odt-zoomable" data-zoom-src="images/100000000000014600000137751A6735.png" /></td></tr></table>
+
+<p>In [1] above, we request to view the code for the [client] class:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span style="color:#0000ff">public partial class </span><span style="color:#2b91af">client </span>: <span style="color:#2b91af">Person </span>{</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">    </span>
+<span class="odt-code-line">...</span>
+<span class="odt-code-line">    <span style="color:#0000ff">public partial class </span><span style="color:#2b91af">Person </span>{</span>
+<span class="odt-code-line">  ...</span>
+<span class="odt-code-line">        <span style="color:#0000ff">public long </span>id {</span>
+<span class="odt-code-line">...</span>
+<span class="odt-code-line">        }</span>
+</code></pre></div>
+
+<p>Above, we have included only the code necessary for our study.</p>
+<ul>
+  <li>Line 1: The [client] class derives from the [person] class, just like in the web service.
+  </li>
+  <li>line 5: the [person] class
+  </li>
+  <li>line 7: a public property of the [person] class
+  </li>
+</ul>
+
+<p>This code is similar to the one already discussed for the C# client in Section<a href="#client-csharp-classe-client"><u><span style="color: #0563c1"> 5.1</span></u></a>.</p>
+<ul>
+  <li>The namespace of the generated C proxy is the one defined in its creation wizard, prefixed by the namespace of the web project itself: <b>ListeDesClients1</b>.<b>Ws.RdvMedecins</b>
+  </li>
+  <li>The proxy class that locally implements the methods of the remote web service is called <b>WsDaoJpaService</b>.
+  </li>
+  <li>Class and property names begin with a lowercase letter
+  </li>
+</ul>
+
+<p>We can write a page [Default.aspx] displaying the list of clients. The page is as follows:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B60000021846837B0A.png" style="display:inline-block; margin:4px;width:5.794cm;height:7.091cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B60000021846837B0A.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>No.</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Type</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Name</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Role</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">MultiView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Views</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View container</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">CustomerView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the view containing the list of customers</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>3
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Repeater</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">RepeaterClients</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">displays the list of customers as a bulleted list</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>4
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ErrorView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the view that displays any errors</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>5
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Label</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ErrorLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the error text</div></td></tr></table>
+
+<p>The code for this page is as follows:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line">&lt;<span style="color:#0000ff">%@ </span><span style="color:#a31515">Page </span><span style="color:#0000ff">Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ClientList1._Default&quot; </span>%&gt;</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">&lt;<span style="color:#0000ff">%@ </span><span style="color:#a31515">Import </span><span style="color:#0000ff">Namespace=&quot;ClientList1.Ws.DoctorAppointments&quot; </span>%&gt;</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;!</span><span style="color:#a31515">DOCTYPE </span><span style="color:#ff0000">html PUBLIC </span><span style="color:#0000ff">&quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">html </span><span style="color:#0000ff">xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">head </span><span style="color:#0000ff">id=&quot;Head1&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">&lt;</span><span style="color:#a31515">title</span><span style="color:#0000ff">&gt;</span>List of clients<span style="color:#0000ff">&lt;</span><span style="color:#a31515">/title</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/head</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">body</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">&lt;</span><span style="color:#a31515">form </span><span style="color:#0000ff">id=&quot;form1&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">&lt;</span><span style="color:#a31515">div</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">MultiView </span><span style="color:#0000ff">ID=&quot;Views&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">      <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View </span><span style="color:#0000ff">ID=&quot;ClientView&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">        List of clients:<span style="color:#0000ff">&lt;br/&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">ul</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">          <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Repeater </span><span style="color:#0000ff">ID=&quot;RepeaterClients&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">ItemTemplate</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">              <span style="color:#0000ff">&lt;</span><span style="color:#a31515">li</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                &lt;<span style="color:#0000ff">%#</span>(Container.DataItem <span style="color:#0000ff">as </span><span style="color:#2b91af">client</span>).lastName%&gt;,</span>
+<span class="odt-code-line">                &lt;<span style="color:#0000ff">%#</span>(Container.DataItem <span style="color:#0000ff">as </span><span style="color:#2b91af">client</span>).lastName%&gt;,</span>
+<span class="odt-code-line">              <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/li</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/ItemTemplate</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">          <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Repeater</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/ul</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">      <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">      <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View </span><span style="color:#0000ff">ID=&quot;ErrorViews&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">        The following error occurred:<span style="color:#0000ff">&lt;br/&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Label </span><span style="color:#0000ff">ID=&quot;ErrorLabel&quot; runat=&quot;server&quot;&gt;&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Label</span><span style="color:#0000ff">&gt;&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">MultiView</span><span style="color:#0000ff">&gt;&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/div</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">  <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/form</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/body</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/html</span><span style="color:#0000ff">&gt;</span></span>
+</code></pre></div>
+
+<p>Note, on line 3, the need to import the [ListeDesClients1.Ws.RdvMedecins] namespace from the web service&#x27;s C proxy so that the [client] class on lines 20 and 21 is accessible.</p>
+<p>The control code [Default.aspx.cs] associated with the presentation page [Default.aspx] is as follows:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span style="color:#0000ff">using </span>System;</span>
+<span class="odt-code-line"><span style="color:#0000ff">using </span>ListeDesClients1.Ws.RdvMedecins;</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">namespace </span>ClientList1</span>
+<span class="odt-code-line">{</span>
+<span class="odt-code-line">  <span style="color:#0000ff">public partial class </span><span style="color:#2b91af">_Default </span>: System.Web.UI.<span style="color:#2b91af">Page</span></span>
+<span class="odt-code-line">  {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">protected void </span>Page_Load(<span style="color:#0000ff">object </span>sender, <span style="color:#2b91af">EventArgs </span>e)</span>
+<span class="odt-code-line">    {</span>
+<span class="odt-code-line">      <span style="color:#0000ff">try</span></span>
+<span class="odt-code-line">      {</span>
+<span class="odt-code-line">        <span style="color:#008000">// Instantiate a local proxy for the remote [DAO] layer</span></span>
+<span class="odt-code-line">        <span style="color:#2b91af">WsDaoJpaService </span>dao = <span style="color:#0000ff">new </span><span style="color:#2b91af">WsDaoJpaService</span>();</span>
+<span class="odt-code-line">        <span style="color:#008000">// client view</span></span>
+<span class="odt-code-line">        Vues.ActiveViewIndex = 0;</span>
+<span class="odt-code-line">        <span style="color:#008000">// initialize client view</span></span>
+<span class="odt-code-line">        RepeaterClients.DataSource = dao.getAllClients();</span>
+<span class="odt-code-line">        RepeaterClients.DataBind();</span>
+<span class="odt-code-line">      }</span>
+<span class="odt-code-line">      <span style="color:#0000ff">catch </span>(<span style="color:#2b91af">Exception </span>ex)</span>
+<span class="odt-code-line">      {</span>
+<span class="odt-code-line">        <span style="color:#008000">// error view</span></span>
+<span class="odt-code-line">        Views.ActiveViewIndex = 1;</span>
+<span class="odt-code-line">        <span style="color:#008000">// initialize error view</span></span>
+<span class="odt-code-line">        ErrorLabel.Text = ex.ToString();</span>
+<span class="odt-code-line">      }</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<ul>
+  <li>Line 8: The <i>Page_Load</i> method is executed when the page is initially loaded. This loading occurs every time a client requests the page.
+  </li>
+  <li>line 13: the local C proxy is instantiated. This C proxy implements the remote web service interface. The application will communicate with this C proxy.
+  </li>
+  <li>line 15: if no exception occurs during the instantiation of the local proxy C, the view named &quot;VueClients&quot; must be displayed, i.e., view #0 in the page&#x27;s &quot;Vues&quot; MultiView.
+  </li>
+  <li>Line 17: The <i>repeater’s</i> data source is the list of clients provided by the <i>getAllClients</i> method of proxy C.
+  </li>
+  <li>line 23: if an exception occurs when instantiating the local C proxy, the view named &quot;VueErreurs&quot; must be displayed, i.e., view #1 in the page&#x27;s &quot;Vues&quot; MultiView.
+  </li>
+  <li>Line 25: The exception is displayed in the &quot;LabelErreur&quot; <i>label</i>.
+  </li>
+</ul>
+
+<p>Running the web project produces the following result:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002530000013205F5D91C.png" style="display:inline-block; margin:4px;width:7.872cm;height:4.048cm;" class="odt-zoomable" data-zoom-src="images/10000000000002530000013205F5D91C.png" /></td></tr></table>
+
+<h2 id="53-a-second-aspnet-2008-client">5.3. <span style="color: #4f81bd"><strong>A second ASP.NET 2008 client</strong></span></h2>
+<p>We will now write a second ASP.NET / C# client, this time using the Visual Web Developer Express 2008 version that preceded <strong>SP1</strong>.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000578000001198C29BB2E.png" style="display:inline-block; margin:4px;width:17.997cm;height:3.612cm;" class="odt-zoomable" data-zoom-src="images/1000000000000578000001198C29BB2E.png" /></td></tr></table>
+
+<p>Let’s create the .NET client web project:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005070000019789034AB9.png" style="display:inline-block; margin:4px;width:17.027cm;height:5.385cm;" class="odt-zoomable" data-zoom-src="images/10000000000005070000019789034AB9.png" /></td></tr></table>
+
+<p>We create a <em>website</em> [1, 2] named [ClientList] [3].</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000046D00000151B465515F.png" style="display:inline-block; margin:4px;width:14.99cm;height:4.459cm;" class="odt-zoomable" data-zoom-src="images/100000000000046D00000151B465515F.png" /></td></tr></table>
+
+<ul>
+  <li>In [4], the web project
+  </li>
+  <li>in [5], by right-clicking on the project name, we add a service reference as we did previously.
+  </li>
+  <li>In [6], the project once the reference to the remote web service has been added
+  </li>
+</ul>
+
+<p>Unlike the SP1 web project discussed earlier, we do not have access to the web service client objects via the Object Explorer.</p>
+<p>Important to note:</p>
+<ul>
+  <li>The namespace of the generated C proxy is the one defined in its creation wizard: <b>Ws.RdvMedecins</b>
+  </li>
+  <li>The proxy class that locally implements the methods of the remote web service is called <b>WsDaoJpaClient</b>.
+  </li>
+  <li>Class and property names begin with a lowercase letter
+  </li>
+</ul>
+
+<p>We can write a page [Default.aspx] displaying the list of clients. The page is as follows:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019A00000205E0734611.png" style="display:inline-block; margin:4px;width:5.424cm;height:6.84cm;" class="odt-zoomable" data-zoom-src="images/100000000000019A00000205E0734611.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>No.</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Type</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Name</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Role</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">MultiView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Views</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View container</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>2
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">CustomerView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the view containing the list of customers</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>3
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Repeater</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">RepeaterClients</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">displays the list of customers as a bulleted list</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>4
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">View</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ErrorView</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the view that displays any errors</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>5
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Label</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">ErrorLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">the error text</div></td></tr></table>
+
+<p>The code for this page is as follows:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
+<span class="odt-code-line">&lt;<span style="color:#0000ff">%@ </span><span style="color:#a31515">Page </span><span style="color:#0000ff">Language=&quot;C#&quot; AutoEventWireup=&quot;true&quot;  CodeFile=&quot;Default.aspx.cs&quot; Inherits=&quot;_Default&quot; </span>%&gt;</span>
+<span class="odt-code-line">&lt;<span style="color:#0000ff">%@ </span><span style="color:#a31515">Import </span><span style="color:#0000ff">Namespace=&quot;Ws.RdvMedecins&quot; </span>%&gt;</span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;!</span><span style="color:#a31515">DOCTYPE </span><span style="color:#ff0000">html PUBLIC </span><span style="color:#0000ff">&quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">html </span><span style="color:#0000ff">xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">head </span><span style="color:#0000ff">id=&quot;Head1&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">title</span><span style="color:#0000ff">&gt;</span>List of clients<span style="color:#0000ff">&lt;</span><span style="color:#a31515">/title</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/head</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">body</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">form </span><span style="color:#0000ff">id=&quot;form1&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">div</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">MultiView </span><span style="color:#0000ff">ID=&quot;Views&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">                <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View </span><span style="color:#0000ff">ID=&quot;ClientView&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">                    List of clients:<span style="color:#0000ff">&lt;br/&gt;</span></span>
+<span class="odt-code-line">                    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">                    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">ul</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Repeater </span><span style="color:#0000ff">ID=&quot;RepeaterClients&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">                            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">ItemTemplate</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                                <span style="color:#0000ff">&lt;</span><span style="color:#a31515">li</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                                    &lt;<span style="color:#0000ff">%#</span>(Container.DataItem <span style="color:#0000ff">as </span><span style="color:#2b91af">client</span>).lastName%&gt;, &lt;<span style="color:#0000ff">%#</span>(Container.DataItem <span style="color:#0000ff">as </span><span style="color:#2b91af">client</span>).firstName%&gt;</span>
+<span class="odt-code-line">                                <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/li</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/ItemTemplate</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Repeater</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/ul</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">                <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View </span><span style="color:#0000ff">ID=&quot;ErrorViews&quot; runat=&quot;server&quot;&gt;</span></span>
+<span class="odt-code-line">                    The following error occurred:<span style="color:#0000ff">&lt;br/&gt;</span></span>
+<span class="odt-code-line">                    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">                    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Label </span><span style="color:#0000ff">ID=&quot;ErrorLabel&quot; runat=&quot;server&quot;&gt;&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">Label</span><span style="color:#0000ff">&gt;&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">View</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">            <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/asp</span><span style="color:#0000ff">:</span><span style="color:#a31515">MultiView</span><span style="color:#0000ff">&gt;&lt;</span><span style="color:#a31515">br </span><span style="color:#0000ff">/&gt;</span></span>
+<span class="odt-code-line">        <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/div</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line">    <span style="color:#0000ff">&lt;</span><span style="color:#a31515">/form</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/body</span><span style="color:#0000ff">&gt;</span></span>
+<span class="odt-code-line"><span style="color:#0000ff">&lt;</span><span style="color:#a31515">/html</span><span style="color:#0000ff">&gt;</span></span>
+</code></pre></div>
+
+<p>Note, on line 2, the need to import the [Ws.RdvMedecins] namespace from the web service&#x27;s C proxy so that the [client] class on line 19 is accessible.</p>
+<p>The control code [Default.aspx.cs] associated with the presentation page [Default.aspx] is as follows:</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span style="color:#0000ff">using </span>System;</span>
+<span class="odt-code-line"><span style="color:#0000ff">using </span>Ws.RdvMedecins;</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line"><span style="color:#0000ff">public partial class </span><span style="color:#2b91af">_Default </span>: System.Web.UI.<span style="color:#2b91af">Page</span></span>
+<span class="odt-code-line">{</span>
+<span class="odt-code-line">  <span style="color:#0000ff">protected void </span>Page_Load(<span style="color:#0000ff">object </span>sender, <span style="color:#2b91af">EventArgs </span>e)</span>
+<span class="odt-code-line">  {</span>
+<span class="odt-code-line">    <span style="color:#0000ff">try</span></span>
+<span class="odt-code-line">    {</span>
+<span class="odt-code-line">      <span style="color:#008000">// Instantiate a local proxy for the remote [DAO] layer</span></span>
+<span class="odt-code-line">      <span style="color:#2b91af">WsDaoJpaClient </span>dao = <span style="color:#0000ff">new </span><span style="color:#2b91af">WsDaoJpaClient</span>();</span>
+<span class="odt-code-line">      <span style="color:#008000">// client view</span></span>
+<span class="odt-code-line">      Views.ActiveViewIndex = 0;</span>
+<span class="odt-code-line">      <span style="color:#008000">// initialize client view</span></span>
+<span class="odt-code-line">      RepeaterClients.DataSource = dao.getAllClients();</span>
+<span class="odt-code-line">      RepeaterClients.DataBind();</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">    <span style="color:#0000ff">catch </span>(<span style="color:#2b91af">Exception </span>ex)</span>
+<span class="odt-code-line">    {</span>
+<span class="odt-code-line">      <span style="color:#008000">// error view</span></span>
+<span class="odt-code-line">      Views.ActiveViewIndex = 1;</span>
+<span class="odt-code-line">      <span style="color:#008000">// initialize error view</span></span>
+<span class="odt-code-line">      ErrorLabel.Text = ex.ToString();</span>
+<span class="odt-code-line">    }</span>
+<span class="odt-code-line">  }</span>
+<span class="odt-code-line">}</span>
+</code></pre></div>
+
+<p>This code is similar to that of the previous version. Running the web project produces the following result:</p>
+<p><img src="images/10000000000001DB0000010B66D19665.png" style="width:8.8cm;height:4.948cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DB0000010B66D19665.png" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        This tutorial written by <strong>Serge Tahé</strong> is made available to the public under the terms of the
+<em>Creative Commons Attribution – Non-Commercial –
+ShareAlike 3.0 Unported</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
