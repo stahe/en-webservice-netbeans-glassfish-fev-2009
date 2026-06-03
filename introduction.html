@@ -57,6 +57,8 @@
     
       <link rel="stylesheet" href="stylesheets/focus.css">
     
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -401,7 +403,7 @@
   <span class="md-ellipsis">
     
   
-    4. The J2EE Web Service for Appointments
+    4. The J2EE web service for appointments
   
 
     
@@ -421,14 +423,14 @@
   
   
     <li class="md-nav__item">
-      <a href="net-clients-of-the-j2ee-appointment-service.html" class="md-nav__link">
+      <a href="clients-net-from-the-j2ee-service-for-appointments.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. .NET clients of the J2EE appointment service
+    5. Clients .NET from the J2EE service for appointments
   
 
     
@@ -448,14 +450,14 @@
   
   
     <li class="md-nav__item">
-      <a href="flex-clients-for-the-jee-appointment-service.html" class="md-nav__link">
+      <a href="clients-flex-version-of-the-jee-appointments-service.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    6. Flex Clients for the JEE Appointment Service
+    6. Clients Flex version of the JEE appointments service
   
 
     
@@ -513,32 +515,32 @@
 
 
 <h1 id="1-introduction">1. <span style="color: #365f91">Introduction</span></h1>
-<p>The PDF of this document is available |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCochQOl1EXRoqvSfdtHswUATmD55slrBKDkKjOcJRjW4c?e=UONdCm">HERE</a>|.</p>
-<p>The examples in this document are available |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQDR6WzcJOsbTqii7eOXuA2zAbCPOLuFiRhw1Mc-obGTR1w?e=AcDO0C">HERE</a>|.</p>
+<p>The PDF for this document is available |<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCochQOl1EXRoqvSfdtHswUATmD55slrBKDkKjOcJRjW4c?e=yz4f9f">HERE</a>|.</p>
+<p>The examples in this document are available |<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQDR6WzcJOsbTqii7eOXuA2zAbCPOLuFiRhw1Mc-obGTR1w?e=pERoGB">HERE</a>|.</p>
 <p>The following text refers to the following documents:</p>
-<p><strong>[ref1]</strong>: [<a href="https://stahe.github.io/en-javaee-juin-2012/"><u><span style="color: #0563c1">http://tahe.ftp-developpez.com/fichiers-archive/javaee.pdf</span></u></a>] - a Java EE course</p>
-<p><strong>[ref2]</strong>: [<a href="https://stahe.github.io/en-jpa-juin-2007/"><u><span style="color: #0563c1">http://tahe.ftp-developpez.com/fichiers-archive/jpa.pdf</span></u></a>] - a JPA course</p>
-<p>For convenience, these references are hereinafter referred to as [<a href="https://stahe.github.io/en-javaee-juin-2012/"><u><span style="color: #0563c1">ref1</span></u></a>] and [<a href="https://stahe.github.io/en-jpa-juin-2007/"><u><span style="color: #0563c1">ref2</span></u></a>].</p>
-<p>This tutorial aims to demonstrate the steps involved in creating and deploying a J2EE web service using the NetBeans 6.5 IDE and the accompanying GlassFish application server. Additionally, we present various clients for this web service: Java, C#, ASP.NET, and Flex clients.</p>
+<p><strong>[ref1]</strong>: [<a href="https://stahe.github.io/en-javaee-juin-2012/"><u><span style="color: #000080">Introduction to Java EE with the NetBeans IDE and the GlassFish Application Server (2012)</span></u></a>] - a Java course EE</p>
+<p><strong>[ref2]</strong>: [<a href="https://stahe.github.io/en-jpa-juin-2007/"><u><span style="color: #000080">Java 5 Persistence Through Practice (2007)</span></u></a>] - a course JPA</p>
+<p>For simplicity, these references are hereinafter referred to as [ref1] and [ref2].</p>
+<p>The tutorial aims to demonstrate the steps involved in creating and deploying a J2EE web service withIDE Netbeans 6.5 and the accompanying Glassfish application server. In addition, we present various clients options for this web service: clients Java, C#, Asp.Net, Flex.</p>
 <p>The tools used are:</p>
 <ul>
-<li>the MySQL 5 DBMS [<a href="http://www.mysql.com/"><u><span style="color: #0563c1">http://www.mysql.com/</span></u></a>]</li>
-<li>the NetBeans 6.5 IDE [<a href="http://www.netbeans.org/"><u><span style="color: #0563c1">http://www.netbeans.org/</span></u></a>]</li>
-<li>the Visual Studio Express 2008 SP1 IDE (C# and Web) [<a href="http://www.microsoft.com/Express/"><u><span style="color: #0563c1">http://www.microsoft.com/Express/</span></u></a>]</li>
-<li>the Adobe Flex Builder 3 IDE [<a href="https://www.adobe.com/cfusion/tdrc/index.cfm?loc=fr_fr&amp;product=flex"><u><span style="color: #0563c1">https://www.adobe.com/cfusion/tdrc/index.cfm?loc=fr_fr&amp;product=flex</span></u></a>]</li>
-<li>the Apache server from the Wamp tool [<a href="http://www.wampserver.com/"><u><span style="color: #0563c1">http://www.wampserver.com/</span></u></a>]</li>
-<li>Adobe Flash Player: [<a href="http://www.adobe.com/fr/products/flashplayer/"><u><span style="color: #0563c1">http://www.adobe.com/fr/products/flashplayer/</span></u></a>]</li>
+<li>SGBD, MySQL 5, [http://www.mysql.com/]</li>
+<li>IDE Netbeans 6.5 [http://www.netbeans.org/]</li>
+<li>IDE Visual Studio Express 2008 SP1 (C# and Web) [http://www.microsoft.com/Express/]</li>
+<li>IDE Adobe Flex Builder 3 [https://www.adobe.com/cfusion/tdrc/index.cfm?loc=fr_fr&amp;product=flex]</li>
+<li>the Apache server from the Wamp tool [http://www.wampserver.com/]</li>
+<li>Adobe Flash Player: [http://www.adobe.com/fr/products/flashplayer/]</li>
 </ul>
-<p>The code is not explained in minute detail. Therefore, this tutorial is intended for those with some prior experience with NetBeans, Java EE, EJB 3, and JPA. All elements used in this tutorial are explained in [<a href="https://stahe.github.io/en-javaee-juin-2012/"><u><span style="color: #0563c1">ref1</span></u></a>] and [<a href="https://stahe.github.io/en-jpa-juin-2007/"><u><span style="color: #0563c1">ref2</span></u></a>] but not necessarily in the tutorial itself.</p>
+<p>The code is not explained in minute detail. Therefore, this tutorial is intended for those with some prior experience with Netbeans, Java EE, EJB3, and JPA.  All elements used in this tutorial are explained in [<a href="https://stahe.github.io/en-javaee-juin-2012/">ref1</a>] and [<a href="https://stahe.github.io/en-jpa-juin-2007/">ref2</a>] but not necessarily in the tutorial itself.</p>
 <p>The tutorial comes with a <em>zip</em> file containing the following items:</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000008620000027CABBEEA51.png" width="680" height="202" style="display:inline-block; margin:4px;width:17.997cm;height:5.334cm;" class="odt-zoomable" data-zoom-src="images/10000000000008620000027CABBEEA51.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008620000027CABBEEA51.png" width="680" height="202" style="display:inline-block; margin:4px;width:17.997cm;height:5.334cm;" class="odt-zoomable" data-zoom-src="images/10000000000008620000027CABBEEA51.png" /></td></tr></table>
 
 <ul>
 <li>[1]: the contents of the zip file</li>
 <li>[2]: the JEE web service in the form of an <em>EAR</em> archive</li>
-<li>[3]: a set of NetBeans 6.5 projects designed to progressively build the JEE web service</li>
-<li>[4]: .NET clients for the JEE service—one C# client and two ASP.NET/C# clients</li>
-<li>[5]: the Flex 3 clients for the JEE service</li>
+<li>[3]: a set of Netbeans 6.5 projects designed to progressively build the JEE web service</li>
+<li>[4]: clients .NET of the JEE service—a C# client and two clients ASP.NET / C#</li>
+<li>[5]: the clients Flex 3  service JEE</li>
 <li>[6]: the script for creating the database used by the application</li>
 </ul>
 
